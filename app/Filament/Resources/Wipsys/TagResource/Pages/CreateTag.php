@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Filament\Resources\Wipsys\TagResource\Pages;
+
+use App\Filament\Resources\Wipsys\TagResource;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\CreateRecord;
+
+class CreateTag extends CreateRecord
+{
+    protected static string $resource = TagResource::class;
+}

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quote extends Model
 {
-    use Auditable;
+    //use Auditable;
     use HasFactory;
 
     public $table = 'sft_quotes';
