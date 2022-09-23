@@ -164,5 +164,6 @@ class WorkorderResource extends Resource
             'create' => Pages\CreateWorkorder::route('/create'),
             'edit' => Pages\EditWorkorder::route('/{record}/edit'),
         ];
-    }    
+    }
+
 }
