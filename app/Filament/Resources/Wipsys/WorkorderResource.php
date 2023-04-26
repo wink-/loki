@@ -17,7 +17,7 @@ class WorkorderResource extends Resource
 {
     protected static ?string $model = Workorder::class;
 
-    protected static ?string $navigationGroup = 'WipSys';    
+    protected static ?string $navigationGroup = 'WipSys';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -59,32 +59,22 @@ class WorkorderResource extends Resource
                 Forms\Components\TextInput::make('invoice_number'),
                 Forms\Components\DateTimePicker::make('invoice_date'),
                 Forms\Components\TextInput::make('invoice_amount'),
-                Forms\Components\TextInput::make('priority')
-                    ->required(),
-                Forms\Components\Toggle::make('rework')
-                    ->required(),
-                Forms\Components\Toggle::make('hot')
-                    ->required(),
-                Forms\Components\Toggle::make('started')
-                    ->required(),
-                Forms\Components\Toggle::make('completed')
-                    ->required(),
-                Forms\Components\Toggle::make('shipped')
-                    ->required(),
-                Forms\Components\Toggle::make('cod')
-                    ->required(),
-                Forms\Components\Toggle::make('invoiced')
-                    ->required(),
+                Forms\Components\TextInput::make('priority'),
+                Forms\Components\Toggle::make('rework'),
+                Forms\Components\Toggle::make('hot'),
+                Forms\Components\Toggle::make('started'),
+                Forms\Components\Toggle::make('completed'),
+                Forms\Components\Toggle::make('shipped'),
+                Forms\Components\Toggle::make('cod'),
+                Forms\Components\Toggle::make('invoiced'),
                 Forms\Components\Textarea::make('note')
                     ->maxLength(65535),
                 Forms\Components\Toggle::make('printed'),
                 Forms\Components\TextInput::make('image_count'),
                 Forms\Components\TextInput::make('session_id')
                     ->maxLength(228),
-                Forms\Components\Toggle::make('archive')
-                    ->required(),
-                Forms\Components\TextInput::make('revision')
-                    ->required(),
+                Forms\Components\Toggle::make('archive'),
+                Forms\Components\TextInput::make('revision'),
             ]);
     }
 
@@ -92,52 +82,76 @@ class WorkorderResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('number'),
-                Tables\Columns\TextColumn::make('customer_code'),
-                Tables\Columns\TextColumn::make('part_id'),
-                Tables\Columns\TextColumn::make('part_number'),
-                Tables\Columns\TextColumn::make('process_code'),
-                Tables\Columns\TextColumn::make('price'),
-                Tables\Columns\TextColumn::make('price_code'),
-                Tables\Columns\TextColumn::make('date_received')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('date_required')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('customer_purchase_order'),
-                Tables\Columns\TextColumn::make('customer_packing_list'),
-                Tables\Columns\TextColumn::make('quantity'),
-                Tables\Columns\TextColumn::make('unit_code'),
+                Tables\Columns\TextColumn::make('number')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Work Order'),
+                Tables\Columns\TextColumn::make('customer_code')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Customer'),
+                //Tables\Columns\TextColumn::make('part_id'),
+                Tables\Columns\TextColumn::make('part_number')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Part'),
+                Tables\Columns\TextColumn::make('process_code')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Process'),
+                Tables\Columns\TextColumn::make('quantity')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Qty'),
+                Tables\Columns\TextColumn::make('price')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Price'),
+                Tables\Columns\TextColumn::make('price_code')->label('Price Code'),
+                Tables\Columns\TextColumn::make('customer_purchase_order')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Customer PO'),
+                Tables\Columns\TextColumn::make('customer_packing_list')
+                    ->sortable()
+                    ->searchable()
+                    ->label('Customer PL'),
+                Tables\Columns\IconColumn::make('rework')
+                    ->boolean()
+                    ->sortable()
+                    ->label('Rework'),
+                //Tables\Columns\TextColumn::make('unit_code'),
                 Tables\Columns\TextColumn::make('quantity_shipped'),
                 Tables\Columns\TextColumn::make('our_last_packing_list'),
-                Tables\Columns\TextColumn::make('destination_code'),
-                Tables\Columns\TextColumn::make('carrier_code'),
-                Tables\Columns\TextColumn::make('freight_code'),
+                //Tables\Columns\TextColumn::make('destination_code'),
+                //Tables\Columns\TextColumn::make('carrier_code'),
+                //Tables\Columns\TextColumn::make('freight_code'),
                 Tables\Columns\TextColumn::make('date_shipped')
-                    ->dateTime(),
+                    ->date()
+                    ->sortable()
+                    ->label('Shipped'),
                 Tables\Columns\TextColumn::make('shipped_amount'),
                 Tables\Columns\TextColumn::make('inventory_amount'),
-                Tables\Columns\TextColumn::make('invoice_number'),
-                Tables\Columns\TextColumn::make('invoice_date')
-                    ->dateTime(),
+                //Tables\Columns\TextColumn::make('invoice_number'),
+                //Tables\Columns\TextColumn::make('invoice_date')->dateTime(),
                 Tables\Columns\TextColumn::make('invoice_amount'),
-                Tables\Columns\TextColumn::make('priority'),
-                Tables\Columns\BooleanColumn::make('rework'),
-                Tables\Columns\BooleanColumn::make('hot'),
-                Tables\Columns\BooleanColumn::make('started'),
-                Tables\Columns\BooleanColumn::make('completed'),
-                Tables\Columns\BooleanColumn::make('shipped'),
-                Tables\Columns\BooleanColumn::make('cod'),
-                Tables\Columns\BooleanColumn::make('invoiced'),
-                Tables\Columns\TextColumn::make('note'),
-                Tables\Columns\BooleanColumn::make('printed'),
-                Tables\Columns\TextColumn::make('image_count'),
-                Tables\Columns\TextColumn::make('session_id'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
-                Tables\Columns\BooleanColumn::make('archive'),
-                Tables\Columns\TextColumn::make('revision'),
+                //Tables\Columns\TextColumn::make('priority'),
+                //Tables\Columns\IconColumn::make('hot')->boolean(),
+                //Tables\Columns\IconColumn::make('started')->boolean(),
+                //Tables\Columns\IconColumn::make('completed')->boolean(),
+                //Tables\Columns\IconColumn::make('shipped')->boolean(),
+                //Tables\Columns\IconColumn::make('cod')->boolean(),
+                //Tables\Columns\IconColumn::make('invoiced')->boolean(),
+                //Tables\Columns\TextColumn::make('note'),
+                //Tables\Columns\IconColumn::make('printed')->boolean(),
+                //Tables\Columns\TextColumn::make('image_count'),
+                //Tables\Columns\TextColumn::make('session_id'),
+                Tables\Columns\TextColumn::make('date_received'),
+                Tables\Columns\TextColumn::make('date_required')->date(),
+                Tables\Columns\TextColumn::make('created_at')->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime(),
+                //Tables\Columns\IconColumn::make('archive')->boolean(),
+                //Tables\Columns\TextColumn::make('revision'),
             ])
             ->filters([
                 //
@@ -146,17 +160,17 @@ class WorkorderResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                //Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

@@ -3,9 +3,10 @@
 namespace App\Models\Wipsys;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use \DateTimeInterface;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Workorder extends Model
 {
@@ -79,15 +80,22 @@ class Workorder extends Model
     {
         return $this->belongsTo(Part::class, 'part_id');
     }
-
-    public function getDateReceivedAttribute($value)
+    protected function dateReceived(): Attribute
     {
-        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
-    }
+        return Attribute::make(
+            get: fn (string $value) => Carbon::parse($value)->format('Y-m/D'),
+            set: fn (string $value) => Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d'),
+        );
+   }
+
+    // public function getDateReceivedAttribute($value)
+    // {
+    //     return $value ? Carbon::parse($value)->format('Y-m-d') : null;
+    // }
 
     public function setDateReceivedAttribute($value)
     {
-        $this->attributes['date_received'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
+        $this->attributes['date_received'] = $value ? Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d') : null;
     }
 
     public function getDateRequiredAttribute($value)
@@ -131,6 +139,6 @@ class Workorder extends Model
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'code', 'customer_code');
-    }    
+    }
 
 }
