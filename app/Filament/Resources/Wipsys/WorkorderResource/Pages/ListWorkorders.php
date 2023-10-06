@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\Wipsys\WorkorderResource\Pages;
 
 use App\Filament\Resources\Wipsys\WorkorderResource;
-use Filament\Pages\Actions;
+use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListWorkorders extends ListRecords
