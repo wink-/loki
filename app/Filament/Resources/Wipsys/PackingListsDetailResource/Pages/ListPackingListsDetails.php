@@ -10,7 +10,7 @@ class ListPackingListsDetails extends ListRecords
 {
     protected static string $resource = PackingListsDetailResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),

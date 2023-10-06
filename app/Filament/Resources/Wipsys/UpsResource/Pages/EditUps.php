@@ -10,7 +10,7 @@ class EditUps extends EditRecord
 {
     protected static string $resource = UpsResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

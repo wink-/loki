@@ -12,7 +12,7 @@ class LatestOrders extends BaseWidget
 {
     protected function getTableQuery(): Builder
     {
-        return Workorder::query()->latest();
+        return Workorder::query()->where('customer_code', '!=', 'SFT')->oldest();
     }
 
     protected function getTableColumns(): array

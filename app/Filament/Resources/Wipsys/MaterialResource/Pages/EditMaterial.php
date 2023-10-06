@@ -10,7 +10,7 @@ class EditMaterial extends EditRecord
 {
     protected static string $resource = MaterialResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

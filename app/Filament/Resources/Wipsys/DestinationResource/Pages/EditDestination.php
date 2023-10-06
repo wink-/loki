@@ -10,7 +10,7 @@ class EditDestination extends EditRecord
 {
     protected static string $resource = DestinationResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

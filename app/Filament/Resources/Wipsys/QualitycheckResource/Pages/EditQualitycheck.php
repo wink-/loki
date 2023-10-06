@@ -10,7 +10,7 @@ class EditQualitycheck extends EditRecord
 {
     protected static string $resource = QualitycheckResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

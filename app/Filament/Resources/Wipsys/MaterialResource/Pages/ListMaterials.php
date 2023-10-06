@@ -10,7 +10,7 @@ class ListMaterials extends ListRecords
 {
     protected static string $resource = MaterialResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),

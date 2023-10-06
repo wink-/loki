@@ -10,7 +10,7 @@ class EditStep extends EditRecord
 {
     protected static string $resource = StepResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

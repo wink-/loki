@@ -6,9 +6,9 @@ use App\Filament\Resources\Wipsys\QuoteResource\Pages;
 use App\Filament\Resources\Wipsys\QuoteResource\RelationManagers;
 use App\Models\Wipsys\Quote;
 use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -19,7 +19,7 @@ class QuoteResource extends Resource
 
     protected static ?string $navigationGroup = 'WipSys';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {

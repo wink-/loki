@@ -10,7 +10,7 @@ class ListLaborCards extends ListRecords
 {
     protected static string $resource = LaborCardResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),

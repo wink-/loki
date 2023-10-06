@@ -10,7 +10,7 @@ class ListMethods extends ListRecords
 {
     protected static string $resource = MethodResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),

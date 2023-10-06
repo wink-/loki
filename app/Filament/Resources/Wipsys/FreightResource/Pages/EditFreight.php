@@ -10,7 +10,7 @@ class EditFreight extends EditRecord
 {
     protected static string $resource = FreightResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

@@ -10,7 +10,7 @@ class EditProcedure extends EditRecord
 {
     protected static string $resource = ProcedureResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

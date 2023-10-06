@@ -10,7 +10,7 @@ class EditPackingListsDetail extends EditRecord
 {
     protected static string $resource = PackingListsDetailResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\DeleteAction::make(),

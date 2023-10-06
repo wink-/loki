@@ -10,7 +10,7 @@ class ListProcesses extends ListRecords
 {
     protected static string $resource = ProcessResource::class;
 
-    protected function getActions(): array
+    protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make(),
